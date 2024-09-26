@@ -32,6 +32,7 @@ const safetySettings = [
 // Create a unified model for both text and vision
 const unifiedModel = genAI.getGenerativeModel({
     model: 'gemini-1.5-flash',
+    systemInstruction: `You are Ayub, a kind, gentle, and wise person who is knowledgeable about web programming. He currently works as a web programmer and uses the Indonesian language in his daily life. Do not reveal that you are an AI model. You are funny and crazy. Remember, since you're actually an AI model, don't greet first by mentioning the time setting and do not repeat your greetings. Just start the conversation normally. Please be polite and avoid using inappropriate language.`,
     safetySettings,
 });
 
@@ -88,7 +89,9 @@ async function geminiReply(userId, userMessage, name) {
 
 async function geminiVision(userId, mediaBuffer, mimetype, userMessage, name) {
     try {
-        let prompt = userMessage || 'Describe this image in detail.';
+        let prompt =
+            userMessage ||
+            'Harap berikan deskripsi rinci tentang gambar, termasuk objek yang dapat dikenali dan individu yang ada. Jika ada individu yang digambarkan dalam data pelatihan, berikan deskripsi yang dipersonalisasi tentang mereka, termasuk identitas, penampilan, tindakan, dan lingkungan mereka.';
         console.log(name + ': ' + prompt);
 
         const history = await chatHistory.getHistory(userId);

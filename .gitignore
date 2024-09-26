@@ -1,0 +1,32 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore environment variable files
+.env
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore dependency directories
+vendor/
+
+# Ignore npm lock file
+package-lock.json
+
+# Ignore chat files
+chat_history.db
+
+# Ignore git files
+.git/
